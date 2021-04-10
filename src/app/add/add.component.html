@@ -1,0 +1,78 @@
+
+  <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform, model1.id)">
+
+    <div> 
+       <h3><img src="{{data.avatar}}" height="20" width="20" />   {{data.first_name}} {{data.last_name}} 
+      </h3> 
+    </div>
+
+    <div class="form-group">
+      <label for="exampleAddress1">Street 1</label>
+      <input  class="form-control" [(ngModel)]="model1.street1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Street 1" name="street1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleAddress2">Street 2</label>
+        <input type="text" class="form-control" id="exampleInputImage" placeholder="Street 2"  [(ngModel)]="model1.street2" name="street2">
+    </div>
+  
+    <div class="form-group">
+      <label for="exampleTown">Town</label>
+      <input type="text" name="town" [(ngModel)]="model1.town" class="form-control" id="exampleInputImage" placeholder="Town">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleCountry">Country</label>
+        <select class="form-control" id="country" [(ngModel)]="model1.country "name="country">
+          <option *ngFor="let c of countries" [value]="c.iso2">{{c.name}}</option>
+     
+       </select>
+      </div>
+      
+<div class="">
+ 
+  <button type="submit"  class="btn btn-secondary">Save</button>  &nbsp; &nbsp;
+      <button type="button"  class="btn btn-primary" (click) = "showSecond= true" >+ Add Address</button>
+   
+   
+  </div>
+  <br />
+  <div class="alert alert-success" role="alert" *ngIf="success">
+    Successful!
+  </div>
+
+  </form>
+  <br />
+  <form *ngIf="showSecond" #myform1 = "ngForm" (ngSubmit) = "onSubmit(myform1,model2.id)"  >
+
+    <div class="form-group">
+      <label for="exampleAddress1">Street 1</label>
+      <input type="email" class="form-control" [(ngModel)]="model2.street1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Street 1" name="street1">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleAddress2">Street 2</label>
+        <input type="text" class="form-control" id="exampleInputImage" placeholder="Street 2"  [(ngModel)]="model2.street2" name="street2">
+
+    </div>
+  
+    <div class="form-group">
+      <label for="exampleTown">Town</label>
+      <input type="text" name="town" [(ngModel)]="model2.town" class="form-control" id="exampleInputImage" placeholder="Town">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleCountry">Country</label>
+        <select class="form-control" id="country" [(ngModel)]="model2.country "name="country">
+          <option *ngFor="let c of countries" [value]="c.iso2">{{c.name}}</option>
+     
+       </select>
+      </div>
+      
+
+  <button type="submit"  class="btn btn-secondary">Save</button> &nbsp; &nbsp;
+  <br />
+  <div class="alert alert-success" role="alert" *ngIf="success">
+    Successful!
+  </div>
+  </form>
